@@ -1,0 +1,355 @@
+{
+	"name": "A1-RomeroDiaz-Scattered Spider",
+	"versions": {
+		"attack": "19",
+		"navigator": "5.3.2",
+		"layer": "4.5"
+	},
+	"domain": "enterprise-attack",
+	"description": "Mapeo de técnicas MITRE ATT&CK identificadas en el reporte CISA AA23-320A sobre Scattered Spider. El mapeo se realizó a partir de las acciones descritas en el reporte y se clasificó según el nivel de confianza de la evidencia.",
+	"filters": {
+		"platforms": [
+			"Windows",
+			"IaaS",
+			"Linux",
+			"macOS",
+			"SaaS",
+			"ESXi",
+			"Network Devices",
+			"PRE",
+			"Containers",
+			"Office Suite",
+			"Identity Provider"
+		]
+	},
+	"sorting": 0,
+	"layout": {
+		"layout": "side",
+		"aggregateFunction": "average",
+		"showID": false,
+		"showName": true,
+		"showAggregateScores": false,
+		"countUnscored": false,
+		"expandedSubtechniques": "none"
+	},
+	"hideDisabled": false,
+	"techniques": [
+		{
+			"techniqueID": "T1583",
+			"tactic": "resource-development",
+			"color": "",
+			"comment": "",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": true
+		},
+		{
+			"techniqueID": "T1583.001",
+			"tactic": "resource-development",
+			"score": 3,
+			"color": "",
+			"comment": "Evidencia: El actor registró dominios creados para parecerse a los de las organizaciones objetivo, incluyendo referencias a help desk y SSO. Justificación: Estos dominios constituyen infraestructura controlada por el adversario para apoyar sus operaciones de ingeniería social y phishing. Confianza: 3 — Explícita.",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": false
+		},
+		{
+			"techniqueID": "T1594",
+			"tactic": "reconnaissance",
+			"score": 3,
+			"color": "",
+			"comment": "Evidencia: “searched business-to-business websites to identify an individual’s role in the company.” Justificación: Scattered Spider consultó sitios web B2B para identificar el puesto de empleados de la organización objetivo. Confianza: 3 — Explícita.",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": false
+		},
+		{
+			"techniqueID": "T1567",
+			"tactic": "exfiltration",
+			"color": "",
+			"comment": "",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": true
+		},
+		{
+			"techniqueID": "T1567.002",
+			"tactic": "exfiltration",
+			"score": 3,
+			"color": "",
+			"comment": "Evidencia: El actor utilizó servicios de almacenamiento en la nube, incluidos MEGA.NZ y Amazon S3, para exfiltrar información. Justificación: Los datos fueron transferidos desde el entorno comprometido hacia servicios externos de almacenamiento en la nube. Confianza: 3 — Explícita.",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": false
+		},
+		{
+			"techniqueID": "T1219",
+			"tactic": "command-and-control",
+			"color": "",
+			"comment": "",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": true
+		},
+		{
+			"techniqueID": "T1219.002",
+			"tactic": "command-and-control",
+			"score": 3,
+			"color": "",
+			"comment": "Evidencia: Scattered Spider convenció a empleados para ejecutar software comercial de acceso remoto y posteriormente utilizó herramientas legítimas de acceso remoto. Justificación: El comportamiento muestra uso de software legítimo de administración/acceso remoto para mantener y operar el acceso. Confianza: 2 — Implícita por la adaptación del comportamiento del reporte a la clasificación de ATT&CK v19.",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": false
+		},
+		{
+			"techniqueID": "T1621",
+			"tactic": "credential-access",
+			"score": 3,
+			"color": "",
+			"comment": "Evidencia: “Sent repeated MFA notification prompts leading to employees pressing the ‘Accept’ button.”\nJustificación: Scattered Spider generó repetidamente solicitudes de MFA hasta conseguir que el empleado aceptara una de ellas. Esto corresponde a Multi-Factor Authentication Request Generation (T1621).\nConfianza: 3 — Explícita.",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": false
+		},
+		{
+			"techniqueID": "T1597",
+			"tactic": "reconnaissance",
+			"color": "",
+			"comment": "",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": true
+		},
+		{
+			"techniqueID": "T1597.002",
+			"tactic": "reconnaissance",
+			"score": 3,
+			"color": "",
+			"comment": "Evidencia: El reporte indica que el actor compró credenciales de empleados y contratistas en mercados ilícitos. Justificación: La compra de información de acceso en fuentes cerradas corresponde a Search Closed Sources: Purchase. Confianza: 3 — Explícita.",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": false
+		},
+		{
+			"techniqueID": "T1566",
+			"tactic": "initial-access",
+			"color": "",
+			"comment": "",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": true
+		},
+		{
+			"techniqueID": "T1566.004",
+			"tactic": "initial-access",
+			"score": 3,
+			"color": "",
+			"comment": "Evidencia: El actor realizó llamadas de spearphishing al help desk para conseguir restablecimientos de contraseñas y transferencias de tokens MFA. Justificación: Utilizó comunicación por voz para inducir acciones que facilitaran el acceso a las cuentas. Confianza: 3 — Explícita.",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": false
+		},
+		{
+			"techniqueID": "T1078",
+			"tactic": "stealth",
+			"color": "",
+			"comment": "",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": true
+		},
+		{
+			"techniqueID": "T1078.002",
+			"tactic": "stealth",
+			"score": 3,
+			"color": "",
+			"comment": "Evidencia: El actor utilizó cuentas comprometidas y atributos SSO válidos para iniciar sesión y obtener acceso a recursos. Justificación: Se aprovecharon credenciales/cuentas válidas de la organización para acceder al entorno. Confianza: 3 — Explícita.",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": false
+		},
+		{
+			"techniqueID": "T1078.002",
+			"tactic": "persistence",
+			"score": 3,
+			"color": "",
+			"comment": "Evidencia: El actor utilizó cuentas comprometidas y atributos SSO válidos para iniciar sesión y obtener acceso a recursos. Justificación: Se aprovecharon credenciales/cuentas válidas de la organización para acceder al entorno. Confianza: 3 — Explícita.",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": false
+		},
+		{
+			"techniqueID": "T1078.002",
+			"tactic": "privilege-escalation",
+			"score": 3,
+			"color": "",
+			"comment": "Evidencia: El actor utilizó cuentas comprometidas y atributos SSO válidos para iniciar sesión y obtener acceso a recursos. Justificación: Se aprovecharon credenciales/cuentas válidas de la organización para acceder al entorno. Confianza: 3 — Explícita.",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": false
+		},
+		{
+			"techniqueID": "T1078.002",
+			"tactic": "initial-access",
+			"score": 3,
+			"color": "",
+			"comment": "Evidencia: El actor utilizó cuentas comprometidas y atributos SSO válidos para iniciar sesión y obtener acceso a recursos. Justificación: Se aprovecharon credenciales/cuentas válidas de la organización para acceder al entorno. Confianza: 3 — Explícita.",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": false
+		},
+		{
+			"techniqueID": "T1486",
+			"tactic": "impact",
+			"score": 3,
+			"color": "",
+			"comment": "Evidencia: El reporte describe cifrado de datos para exigir rescate y el posible despliegue de ransomware DragonForce. Justificación: El cifrado de información impide el acceso a los datos y se utiliza como mecanismo de impacto/extorsión. Confianza: 3 — Explícita.",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": false
+		},
+		{
+			"techniqueID": "T1598",
+			"tactic": "reconnaissance",
+			"color": "",
+			"comment": "",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": true
+		},
+		{
+			"techniqueID": "T1598.004",
+			"tactic": "reconnaissance",
+			"score": 3,
+			"color": "",
+			"comment": "Evidencia: Scattered Spider realizó llamadas haciéndose pasar por personal de TI/help desk para obtener información y credenciales. Justificación: Las llamadas dirigidas buscaban obtener información de la víctima mediante ingeniería social por voz. Confianza: 3 — Explícita.",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": false
+		},
+		{
+			"techniqueID": "T1213",
+			"tactic": "collection",
+			"color": "",
+			"comment": "",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": true
+		},
+		{
+			"techniqueID": "T1213.002",
+			"tactic": "collection",
+			"score": 3,
+			"color": "",
+			"comment": "Evidencia: El reporte señala búsquedas en SharePoint después de obtener acceso. Justificación: SharePoint fue utilizado como repositorio para localizar información de interés dentro del entorno comprometido. Confianza: 3 — Explícita.",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": false
+		},
+		{
+			"techniqueID": "T1556",
+			"tactic": "defense-impairment",
+			"color": "",
+			"comment": "",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": true
+		},
+		{
+			"techniqueID": "T1556",
+			"tactic": "credential-access",
+			"color": "",
+			"comment": "",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": true
+		},
+		{
+			"techniqueID": "T1556.006",
+			"tactic": "defense-impairment",
+			"score": 3,
+			"color": "",
+			"comment": "Evidencia: El actor registró sus propios tokens/dispositivos MFA en cuentas comprometidas. Justificación: La incorporación de un método MFA controlado por el adversario modifica el proceso de autenticación y permite conservar acceso. Confianza: 3 — Explícita.",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": false
+		},
+		{
+			"techniqueID": "T1556.006",
+			"tactic": "persistence",
+			"score": 3,
+			"color": "",
+			"comment": "Evidencia: El actor registró sus propios tokens/dispositivos MFA en cuentas comprometidas. Justificación: La incorporación de un método MFA controlado por el adversario modifica el proceso de autenticación y permite conservar acceso. Confianza: 3 — Explícita.",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": false
+		},
+		{
+			"techniqueID": "T1556.006",
+			"tactic": "credential-access",
+			"score": 3,
+			"color": "",
+			"comment": "Evidencia: El actor registró sus propios tokens/dispositivos MFA en cuentas comprometidas. Justificación: La incorporación de un método MFA controlado por el adversario modifica el proceso de autenticación y permite conservar acceso. Confianza: 3 — Explícita.",
+			"enabled": true,
+			"metadata": [],
+			"links": [],
+			"showSubtechniques": false
+		}
+	],
+	"gradient": {
+		"colors": [
+			"#ff6666ff",
+			"#ffe766ff",
+			"#8ec843ff"
+		],
+		"minValue": 1,
+		"maxValue": 3
+	},
+	"legendItems": [
+		{
+			"color": "#ff0000",
+			"label": "3 — Explícita"
+		},
+		{
+			"color": "#ffff00",
+			"label": "2 — Implícita"
+		},
+		{
+			"color": "#00ff00",
+			"label": "1 — Inferida"
+		}
+	],
+	"metadata": [],
+	"links": [],
+	"showTacticRowBackground": false,
+	"tacticRowBackground": "#dddddd",
+	"selectTechniquesAcrossTactics": true,
+	"selectSubtechniquesWithParent": false,
+	"selectVisibleTechniques": false
+}
