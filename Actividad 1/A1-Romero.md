@@ -9,11 +9,10 @@
 ## 1 · Caso elegido
 
 **Grupo/campaña:** Scattered Spider (G1015)  
-**Reporte y URL:** CISA AA23-320A — *Scattered Spider* (actualizado el 29 de julio de 2025)  
+**Reporte y URL:** CISA AA23-320A — *Scattered Spider*
 https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-320a
 
 ## 2 · Mapeo
-
 | # | Táctica | Técnica (ID) | Confianza | Evidencia — frase literal del reporte |
 |---|---|---|---|---|
 | 1 | Reconnaissance | Search Victim-Owned Websites (T1594) | 3 — Explícita | “Scattered Spider searches business-to-business websites to gather information and ultimately determine the individual’s role in a target organization.” |
@@ -24,51 +23,54 @@ https://www.cisa.gov/news-events/cybersecurity-advisories/aa23-320a
 | 6 | Credential Access | Multi-Factor Authentication Request Generation (T1621) | 3 — Explícita | “Sent repeated MFA notification prompts leading to employees pressing the ‘Accept’ button (also known as MFA fatigue).” |
 | 7 | Persistence | Modify Authentication Process: Multi-Factor Authentication (T1556.006) | 3 — Explícita | “Scattered Spider threat actors then register their own MFA tokens.” |
 | 8 | Command and Control | Remote Access Tools: Remote Desktop Software (T1219.002) | 3 — Explícita | “Posed as company IT and/or helpdesk staff to direct employees to run commercial remote access tools enabling initial access.” |
-| 9 | Initial Access | Valid Accounts: Domain Accounts (T1078.002) | 3 — Explícita | “the threat actors conduct spearphising calls to convince IT help desk personnel to reset passwords and/or transfer MFA tokens.” |
+| 9 | Privilege Escalation | Valid Accounts: Domain Accounts (T1078.002) | 3 — Explícita | “the threat actors conduct spearphising calls to convince IT help desk personnel to reset passwords and/or transfer MFA tokens.” |
 | 10 | Collection | Data from Information Repositories: SharePoint (T1213.002) | 3 — Explícita | “Scattered Spider threat actors often perform discovery, specifically searching for SharePoint sites.” |
 | 11 | Exfiltration | Exfiltration Over Web Service: Exfiltration to Cloud Storage (T1567.002) | 3 — Explícita | “Recently, this includes exfiltration to multiple sites including MEGA[.]NZ and U.S.-based data centers such as Amazon S3.” |
 | 12 | Impact | Data Encrypted for Impact (T1486) | 3 — Explícita | “encrypt data on the system for ransom.” |
 
-### Criterio de confianza
+Para asignar la confianza utilicé la escala indicada en la actividad. En este caso marqué las 12 técnicas con nivel 3 porque el comportamiento se menciona directamente en el reporte y no tuve que suponer que ocurrió.
 
-- **3 — Explícita:** el comportamiento está descrito de forma directa en el reporte.
-- **2 — Implícita:** el comportamiento requiere una inferencia razonable a partir de la evidencia.
-- **1 — Inferida:** la relación es posible, pero el reporte no la establece con suficiente claridad.
+La única técnica que necesitó una pequeña adaptación fue T1219.002. El reporte de CISA utiliza una versión anterior de ATT&CK y la presenta como T1219, mientras que en la versión utilizada en Navigator aparece de forma más específica como T1219.002. El comportamiento sigue siendo el mismo: el uso de herramientas de acceso remoto.
 
-En esta selección, **las 12 técnicas tienen confianza 3**, porque todas cuentan con comportamiento explícito en el reporte. En once casos, el advisory además las identifica directamente con el mismo ID. La única particularidad es **T1219.002**: el advisory, basado en ATT&CK v17, utiliza el ID padre **T1219 — Remote Access Software**, mientras que Enterprise ATT&CK v19 divide esa conducta en sub-técnicas. La evidencia del reporte especifica el uso de software comercial de acceso remoto/RMM y, por ello, permite seleccionar de forma explícita **T1219.002 — Remote Desktop Software** en v19. 
 
 ## 3 · Confrontación con el mapeo oficial
-
-Para la comparación tomé como referencia las tablas ATT&CK incluidas en el reporte CISA. Como la actividad se realiza en **Enterprise ATT&CK**, no conté como omisiones las técnicas de dominio Mobile **T1660** y **T1451**.
-
 | | Cuántas | Cuáles |
 |---|---:|---|
-| **Aciertos** (tú y el reporte) | 12 | T1594, T1583.001, T1597.002, T1598.004, T1566.004, T1621, T1556.006, T1078.002, T1213.002, T1567.002, T1486 y la correspondencia T1219 (v17) → T1219.002 (v19). |
+| **Aciertos** (tú y el reporte) | 12 | T1594, T1583.001, T1597.002, T1598.004, T1566.004, T1621, T1556.006, T1078.002, T1213.002, T1567.002, T1486 y T1219/T1219.002. |
 | **Omisiones** (el reporte sí, tú no) | 29 | T1589, T1598, T1593.001, T1585.001, T1566, T1199, T1648, T1204, T1136, T1078, T1484.002, T1578.002, T1656, T1606, T1552.001, T1552.004, T1217, T1538, T1083, T1018, T1539, T1021.007, T1213.003, T1074, T1114, T1530, T1090, T1567 y T1657. |
-| **Extras** (tú sí, el reporte no) | 0 | No hay extras de comportamiento. T1219.002 es el refinamiento en v19 del comportamiento que el reporte v17 representa con T1219. |
+| **Extras** (tú sí, el reporte no) | 0 | No identifiqué técnicas adicionales que no estuvieran respaldadas por el reporte. |
 
-El grupo de omisiones fue el más grande porque mi capa resume los comportamientos que consideré más representativos y con evidencia clara; no intenta reproducir todas las técnicas mencionadas en el advisory. Los doce aciertos muestran que las técnicas seleccionadas están respaldadas directamente por el reporte. La diferencia entre T1219 y T1219.002 se debe a la versión de ATT&CK utilizada y no a una inferencia adicional sobre el comportamiento.
+El grupo más grande fue el de omisiones. Esto pasó porque el reporte contiene muchas más técnicas de las que seleccioné para mi capa. Yo me enfoqué en las que me parecieron más claras y representativas para explicar cómo trabaja Scattered Spider. Aunque no incluí todo lo que aparece en el reporte, las técnicas que seleccioné sí tienen evidencia directa.
 
-La capa oficial del grupo Scattered Spider es más extensa porque representa comportamientos acumulados de múltiples incidentes y periodos. Por eso no es esperable que una capa construida a partir de un solo reporte tenga el mismo tamaño que el perfil completo del grupo.
+También observé que el perfil completo de Scattered Spider en MITRE contiene muchas más técnicas. Esto tiene sentido porque ese perfil reúne información de diferentes incidentes y momentos, mientras que mi capa está basada principalmente en el reporte que analicé.
+
 
 ## 4 · La técnica más difícil de mitigar
 
-La técnica que considero más difícil de mitigar es **Phishing: Spearphishing Voice (T1566.004)**, porque explota principalmente la confianza y los procedimientos humanos del help desk. Un firewall por sí solo no evita que una persona sea convencida de restablecer una contraseña o transferir un factor de autenticación. Para reducir el riesgo se necesitan procedimientos estrictos de verificación de identidad, devolución de llamada por canales registrados, aprobación adicional para cambios sensibles y capacitación continua. También ayuda utilizar MFA resistente al phishing para disminuir el impacto si la ingeniería social tiene éxito.
+Considero que una de las técnicas más difíciles de mitigar es **Phishing: Spearphishing Voice (T1566.004)**. El problema es que no depende únicamente de una falla en un sistema, sino de convencer a una persona para que realice una acción. Por ejemplo, los atacantes pueden hacerse pasar por un empleado y llamar al help desk para pedir un cambio de contraseña o de MFA.
+
+Para disminuir este riesgo sería necesario tener procesos más estrictos para verificar la identidad de los usuarios antes de hacer cambios importantes. También ayudaría capacitar al personal y utilizar métodos de autenticación más resistentes al phishing.
 
 ## 5 · Pitch de 90 segundos a la dirección
 
-Este caso muestra que el acceso inicial puede comenzar con una llamada y no necesariamente con una vulnerabilidad técnica. Los atacantes se hicieron pasar por personal legítimo, manipularon procesos de soporte y lograron obtener credenciales o control sobre la autenticación. Después utilizaron herramientas legítimas de acceso remoto, buscaron información sensible y llegaron a exfiltrar y cifrar datos. Esto significa que proteger la organización requiere combinar controles técnicos con procesos sólidos de identidad y soporte. Propongo reforzar la verificación de identidad del help desk, limitar el software de acceso remoto y controlar mejor el acceso a sistemas y datos sensibles. La decisión que solicito es priorizar estas medidas como controles de negocio y no únicamente como configuraciones de TI.
+El caso de Scattered Spider demuestra que un ataque no siempre empieza aprovechando una vulnerabilidad técnica. En este caso, una parte importante del ataque se basa en engañar a empleados y personal de soporte para conseguir acceso a las cuentas.
+
+Después de obtener acceso, los atacantes pueden utilizar herramientas legítimas de administración remota, buscar información dentro de la organización y extraer datos. En algunos casos también pueden cifrar la información para pedir un rescate.
+
+Por esta razón, considero importante reforzar los procesos de verificación de identidad, controlar mejor las herramientas de acceso remoto y limitar el acceso a información sensible. La seguridad no debería depender solamente del firewall, sino también de los procesos que siguen los empleados y el área de soporte.
 
 ## 6 · Puente al entregable final del módulo
 
 | Técnica (ID) | Mitigación ATT&CK | Qué cambiaría yo en la topología |
 |---|---|---|
-| Remote Access Tools: Remote Desktop Software (T1219.002) | M1037 — Filter Network Traffic | Forzaría el tráfico de salida de los equipos por firewall/proxy y permitiría únicamente los servicios de administración remota autorizados. El tráfico hacia servicios RMM no aprobados quedaría bloqueado o restringido. |
-| Data from Information Repositories: SharePoint (T1213.002) | M1035 — Limit Access to Resource Over Network | Separaría los repositorios sensibles de los segmentos de usuario y permitiría su acceso solamente desde identidades, dispositivos y redes autorizadas, aplicando mínimo privilegio. |
-| Valid Accounts: Domain Accounts (T1078.002) | M1030 — Network Segmentation | Separaría administración, identidad, usuarios y servidores críticos en zonas distintas con reglas explícitas entre segmentos, de modo que una cuenta comprometida no otorgue acceso amplio a toda la red. |
+| Remote Access Tools: Remote Desktop Software (T1219.002) | M1037 — Filter Network Traffic | Limitaría desde el firewall o proxy las herramientas de acceso remoto que pueden utilizarse. Solo permitiría aquellas que hayan sido autorizadas por la organización. |
+| Data from Information Repositories: SharePoint (T1213.002) | M1035 — Limit Access to Resource Over Network | Separaría los recursos que contienen información sensible y permitiría que solamente usuarios o equipos autorizados puedan acceder a ellos. |
+| Valid Accounts: Domain Accounts (T1078.002) | M1030 — Network Segmentation | Dividiría la red en diferentes segmentos para evitar que una cuenta comprometida tenga acceso directo a todos los sistemas de la organización. |
 
-Estas decisiones no eliminan por sí solas las técnicas, pero reducen las rutas disponibles para el adversario y el alcance que podría tener una cuenta o un equipo comprometido.
+Estas medidas no impedirían por completo que las técnicas fueran utilizadas, pero sí podrían limitar el acceso del atacante y reducir el daño que podría causar dentro de la red.
 
 ## 7 · Pregunta guía
 
-ATT&CK Navigator comunica de forma visual en qué etapas se concentra el comportamiento del adversario y permite distinguir rápidamente qué técnicas tienen evidencia más fuerte mediante los scores y colores. Un documento de texto puede explicar cada acción con más detalle, pero la capa facilita ver el patrón completo, las concentraciones y los huecos del análisis en una sola vista.
+ATT&CK Navigator permite observar de manera visual en qué partes del ataque se concentran las técnicas utilizadas. Esto facilita identificar rápidamente los comportamientos más importantes y comparar diferentes etapas del ataque.
+
+En un documento de texto también se puede explicar esta información, pero con Navigator es más fácil tener una vista general y entender la relación entre las técnicas y las tácticas.
