@@ -16,21 +16,20 @@
 | 7 | Pasivo | Ruta prohibida en `robots.txt` | `FLAG{nordlys_staff_portal_2e08}` | `curl -s http://192.168.56.10/internal-tools/` |
 | 8 | Pasivo | `security.txt` | `FLAG{nordlys_security_txt_9d4b}` | `curl -s http://192.168.56.10/.well-known/security.txt` |
 | 9 | Pasivo | Cabecera de respuesta | `FLAG{nordlys_http_header_8b17}` | `curl -sI http://192.168.56.10/` |
-| 10 | Enumeración | JavaScript del sitio | **No encontrada todavía** | — |
+| 10 | Enumeración | JavaScript del sitio | **No encontrada** | — |
 | 11 | Enumeración | Copia de seguridad | `FLAG{nordlys_backup_file_3a5e}` | `curl -s http://192.168.56.10/index.html.bak` |
-| 12 | Enumeración | Archivo de configuración | **No encontrada todavía** | — |
-| 13 | Enumeración | Directorio de control de versiones | **No encontrada todavía** | — |
+| 12 | Enumeración | Archivo de configuración | **No encontrada** | — |
+| 13 | Enumeración | Directorio de control de versiones | **No encontrada** | — |
 | 14 | Enumeración | Página no enlazada | `FLAG{nordlys_sitemap_unlinked_7e61}` | `curl -s http://192.168.56.10/careers/offer-draft-q3.html` |
 | 15 | Enumeración | Listado de directorio | `FLAG{nordlys_dir_listing_b982}` | `curl -s http://192.168.56.10/uploads/backup-notes.txt` |
 | 16 | Enumeración | Página de error propia | `FLAG{nordlys_custom_404_51b8}` | `curl -s http://192.168.56.10/ruta-que-no-existe` |
-| 17 | Análisis | Metadatos de documento | **No encontrada todavía** | — |
+| 17 | Análisis | Metadatos de documento | **No encontrada** | — |
 | 18 | Análisis | Exportación de datos | `FLAG{nordlys_csv_export_d13c}` | `curl -s http://192.168.56.10/uploads/medarbejderliste-eksport.csv` |
 | 19 | Análisis | Respaldo del sitio | `FLAG{nordlys_old_site_archive_2b44}` | `grep -R "FLAG" nordlys-public-2024` |
 | 20 | Análisis | Vhost sin registro DNS | `FLAG{nordlys_vhost_staging_af26}` | `curl -s -H "Host: dev.nordlysai.dk" http://192.168.56.10/` |
 
 **Encontradas: 16 / 20**
 
-> No se inventaron las cuatro banderas que no aparecen en las evidencias capturadas. Si se encuentran después, sólo hay que sustituir esas cuatro filas.
 
 ## Hallazgos sin bandera
 
