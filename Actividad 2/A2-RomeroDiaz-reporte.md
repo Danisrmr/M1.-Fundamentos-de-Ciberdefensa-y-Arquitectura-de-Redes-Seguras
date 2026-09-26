@@ -2,7 +2,7 @@
 
 **Analista:** Alma Daniela Romero Díaz  
 **Fecha:** 26 de septiembre de 2026  
-**Alcance:** dominio `nordlysai.dk` y los servicios que resuelve, en entorno de laboratorio autorizado. Sólo reconocimiento: no se explotó ni se autenticó nada.
+**Alcance:** dominio `nordlysai.dk`. Sólo reconocimiento.
 
 ---
 
