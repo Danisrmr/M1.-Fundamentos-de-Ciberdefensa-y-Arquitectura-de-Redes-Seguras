@@ -30,8 +30,6 @@
 
 **Total de banderas encontradas: 16 de 20.**
 
-Las banderas 10, 12, 13 y 17 no las encontré durante la práctica, por lo que preferí dejarlas sin completar en lugar de agregar información que no hubiera comprobado directamente.
-
 ---
 
 ## Otros hallazgos
