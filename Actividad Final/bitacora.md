@@ -53,7 +53,6 @@
 | E-13 | Validación | Redis: comando INFO mediante Metasploit. El módulo reporta que el servicio aceptó INFO y devolvió metadatos. |
 | E-14 | Validación | SSH: ejecución de comandos como ubuntu. La conexión SSH responde id, whoami y hostname; uid 1001 y srv-delphos. |
 
-**Uso:** E-01 a E-14 son capturas reales insertadas en `informe-pentest-delphos.pdf`; no son archivos individuales ni capturas que debas volver a tomar. La evidencia original de consola puede conservar su nombre `.txt` en tu carpeta de Kali para una auditoría, pero la entrega utiliza estas referencias.
 
 ## Observaciones necesarias para reproducibilidad
 
@@ -67,8 +66,6 @@
 
 
 ## Registro complementario por intento
-
-El formato complementario sigue el bloque de la plantilla oficial. Se distinguen pruebas exitosas, fallos relevantes y acciones que **no** se realizaron. Las horas exactas se usan únicamente cuando aparecen en las capturas o en el reporte.
 
 ### Intento 01 — Acceso a MariaDB con cifrado solicitado por el cliente
 
@@ -130,12 +127,6 @@ El formato complementario sigue el bloque de la plantilla oficial. Se distinguen
 - **Impacto para Delphos:** Ninguno demostrado por esas dos respuestas.
 - **Remediación / decisión de arquitectura:** Verificar de forma interna la presencia de servicios legados; no inferir su estado por `robots.txt`.
 
-## Registro de cierre y protección de evidencias
-
-- **Cierre:** se desactivó `spool` y se guardaron los archivos de evidencia de Metasploit. No se realizaron operaciones destructivas.
-- **Informe automatizado:** el archivo `openvas-delphos.pdf` corresponde al reporte de la tarea completada. En la copia de entrega únicamente se ocultó el texto completo de una clave privada SSH, sin alterar la gravedad, resumen o fechas del hallazgo.
-- **Resguardo:** no compartir la clave privada ni los secretos de `config.old`; el texto íntegro permanece solo en el entorno académico controlado.
-- **Trazabilidad:** si el docente solicita corroborar una prueba, utilizar los archivos `evidencias/` conservados por el laboratorio. El ZIP principal contiene únicamente los tres archivos prescritos.
 
 ## Relación con hallazgos
 
