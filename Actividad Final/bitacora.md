@@ -106,12 +106,6 @@
 - **Impacto para Delphos:** Ninguno demostrado por esas dos respuestas.
 - **Remediación / decisión de arquitectura:** Verificar de forma interna la presencia de servicios legados; no inferir su estado por `robots.txt`.
 
-## Registro de cierre y protección de evidencias
-
-- **Cierre:** se desactivó `spool` y se guardaron los archivos de evidencia de Metasploit. No se realizaron operaciones destructivas.
-- **Informe automatizado:** el archivo `openvas-delphos.pdf` corresponde al reporte de la tarea completada. En la copia de entrega únicamente se ocultó el texto completo de una clave privada SSH, sin alterar la gravedad, resumen o fechas del hallazgo.
-- **Resguardo:** no compartir la clave privada ni los secretos de `config.old`; el texto íntegro permanece solo en el entorno académico controlado.
-- **Trazabilidad:** si el docente solicita corroborar una prueba, utilizar los archivos `evidencias/` conservados por el laboratorio. El ZIP principal contiene únicamente los tres archivos prescritos.
 
 ## Relación con hallazgos
 
