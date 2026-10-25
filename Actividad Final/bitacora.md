@@ -1,9 +1,15 @@
 # Bitácora de prueba de penetración — Delphos
 
 **Pentester:** Alma Daniela Romero Díaz
-**Fecha:** 17–24 de octubre de 2026 
-**Alcance:** únicamente `192.168.59.10` | **Laboratorio:** red host-only `192.168.59.0/24`  
+
+**Fecha:** 18–24 de octubre de 2026 
+
+**Alcance:** únicamente `192.168.59.10` 
+
+**Laboratorio:** red host-only `192.168.59.0/24`  
+
 **Autorización:** Laboratorio aislado; carta de autorización de la práctica 
+
 **Clasificación:** Confidencial - contiene datos sensibles ficticios.
 
 
